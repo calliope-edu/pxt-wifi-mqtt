@@ -1,0 +1,22 @@
+{
+    "name": "WiFi MQTT ESP32C3",
+    "version": "0.1",
+    "description": "WiFi Extension ESP32C3",
+    "dependencies": {
+        "core": "*"
+    },
+    "files": [
+        "README.md",
+        "main.blocks",
+        "main.ts",
+        "wifimqtt.ts"
+    ],
+    "testFiles": [
+        "test.ts"
+    ],
+    "public": true,
+    "supportedTargets": [
+        "calliopemini"
+    ],
+    "preferredEditor": "tsprj"
+}
