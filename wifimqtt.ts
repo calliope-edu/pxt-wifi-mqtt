@@ -282,7 +282,7 @@ namespace WiFi {
 
             // Configure MQTT user settings
             sendATCmd(`AT+MQTTUSERCFG=0,1,"${clientId}","${username}","${password}",0,0,""`)
-            result = waitAtResponse("OK", "ERROR", "FAIL", 2000)
+            result = waitAtResponse("OK", "ERROR", "FAIL", 8000)
             if (result != 1) {
                 basic.showString("User CFG Failed", 70)
                 return
