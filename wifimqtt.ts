@@ -274,10 +274,9 @@ namespace WiFi {
         let mqttstate = checkMQTTConnection()
         basic.pause(100)
         if (!isMqttConnected) {
-            if (mqttstate == 1 || mqttstate == 2) {
-                sendATCmd(`AT+MQTTCLEAN=0`)
-                result = waitAtResponse("OK", "ERROR", "FAIL", 2000)
-                basic.pause(500)
+            sendATCmd(`AT+MQTTCLEAN=0`)
+            waitAtResponse("OK", "ERROR", "FAIL", 3000)
+            basic.pause(1500)
             }
 
             // Configure MQTT user settings
@@ -502,7 +501,7 @@ namespace WiFi {
     //% group="UartWiFi"
     export function checkMQTTConnection(): number {
         sendATCmd('AT+MQTTCONN?')
-        let result = waitAtResponse("+MQTTCONN:", "ERROR", "FAIL", 2000)
+        let result = waitAtResponse("+MQTTCONN", "ERROR", "FAIL", 4000)
 
         if (result == 1) {
             // Look for the +MQTTCONN line in the response
