@@ -277,7 +277,6 @@ namespace WiFi {
             sendATCmd(`AT+MQTTCLEAN=0`)
             waitAtResponse("OK", "ERROR", "FAIL", 3000)
             basic.pause(1500)
-            }
 
             // Configure MQTT user settings
             sendATCmd(`AT+MQTTUSERCFG=0,1,"${clientId}","${username}","${password}",0,0,""`)
